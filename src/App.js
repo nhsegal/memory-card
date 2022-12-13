@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  let bigString = 'ア,イ,ウ,エ,オ,カ,キ,ク,ケ,コ,サ,シ,ス,セ,ソ,タ,チ,ツ,テ,ト,ナ,ニ,ヌ,ネ,ノ,ハ,ヒ,フ,ヘ,ホ,マ,ミ,ム,メ,モ,ヤ,ユ,ヨ,ラ,リ,ロ,レ,ロ,ワ,ヲ,ン'
+  let charSet = bigString.split(',');
+
+  function pickRandom(n) {
+    return Math.floor(Math.random() * n);
+  }
+
+
+  return <div className="App">
+    <Card set = {charSet} pick = {pickRandom(charSet.length)} />
+  </div>;
 }
 
 export default App;
