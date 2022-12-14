@@ -1,0 +1,15 @@
+.card {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  font-size: 4rem;
+}
+
+.card:hover {
+  background-color: rgb(250, 250, 200);
+}
+
+.card:active {
+  background-color: rgb(250, 250, 100)
+}
