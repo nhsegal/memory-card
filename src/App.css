@@ -14,8 +14,15 @@
 }
 
 .instructions {
-  width: 26rem;
+  width: 30rem;
   font-size: 1.5rem;
-  text-align: left; 
+  text-align: center; 
+  margin: 1rem;
+}
+
+.score {
+  width: 30rem;
+  font-size: 1.5rem;
+  text-align: center; 
   margin: 1rem;
 }

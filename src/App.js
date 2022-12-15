@@ -58,9 +58,9 @@ function App() {
   return (
     <div className="App">
       <div className="instructions">Click on a card to score a point, but avoid clicking on the same symbol twice.
-       Selecting the same symbol twice ends the game.</div>
-      <div>Current Score: {score}</div>
-      <div>High Score: {highScore}</div>
+       Selecting the same symbol twice ends the current game and starts a new one.</div>
+      <div className="score">Current Score: {score} <br></br>
+      High Score: {highScore}</div>
       <div className="deck">
         {testSubset.map((element) => (
           <Card pick={element} onClick={recordPick} key={uniqid()} />
