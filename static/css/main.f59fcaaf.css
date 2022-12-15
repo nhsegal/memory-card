@@ -1,2 +1,0 @@
-.App{align-content:center;align-items:center;display:flex;flex-direction:column;text-align:center}.deck{grid-gap:10px;display:grid;gap:10px;grid-template-columns:6rem 6rem 6rem 6rem;grid-template-rows:1fr 1fr 1fr 1fr}.instructions{font-size:1.5rem;margin:1rem;text-align:left;width:26rem}.card{border:1px solid #000;border-radius:1rem;font-size:4rem;height:6rem;width:6rem}.card:hover{background-color:#fafac8}.card:active{background-color:#fafa64}
-/*# sourceMappingURL=main.f59fcaaf.css.map*/
