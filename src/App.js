@@ -5,18 +5,22 @@ import uniqid from "uniqid";
 
 function App() {
   const bigString =
-  "ア,イ,ウ,エ,オ,カ,キ,ク,ケ,コ,サ,シ,ス,セ,ソ,タ,チ,ツ,テ,ト,ナ,ニ,ヌ,ネ,ノ,ハ,ヒ,フ,ヘ,ホ,マ,ミ,ム,メ,モ,ヤ,ユ,ヨ,ラ,リ,ル,レ,ロ,ワ,ヲ,ン";
+    "ア,イ,ウ,エ,オ,カ,キ,ク,ケ,コ,サ,シ,ス,セ,ソ,タ,チ,ツ,テ,ト,ナ,ニ,ヌ,ネ,ノ,ハ,ヒ,フ,ヘ,ホ,マ,ミ,ム,メ,モ,ヤ,ユ,ヨ,ラ,リ,ル,レ,ロ,ワ,ヲ,ン";
   const deck = bigString.split(",");
   const subsetNumber = 16;
   const [pickedList, setPickedlist] = useState([]);
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+
+  useEffect(() => {
+    if (score >= highScore) {
+      setHighScore(score);
+    }
+  }, [score]);
 
   function pickRandom(n) {
     return Math.floor(Math.random() * n);
   }
-
-  const [highScore, setHighScore] = useState(0);
-
 
   function makeSubset() {
     let workingDeck = [...deck];
@@ -33,31 +37,28 @@ function App() {
     ev.preventDefault();
     if (pickedList.includes(ev.target.value)) {
       console.log("Game Over!");
-      console.log(score)
+      console.log(pickedList);
       setPickedlist([]);
       setScore(0);
       return;
     }
     if (pickedList.length === 0) {
       setPickedlist([ev.target.value]);
-      setScore(score+1);
-      if (score >= highScore){
-        setHighScore(score)
-      }
+      setScore(score + 1);
       return;
     }
 
     setPickedlist([...pickedList, ev.target.value]);
-    setScore(score+1);
-    if (score >= highScore){
-      setHighScore(score)
-    }
+    setScore(score + 1);
+  
   }
 
   let testSubset = makeSubset();
 
   return (
     <div className="App">
+      <div className="instructions">Click on a card to score a point, but avoid clicking on the same symbol twice.
+       Selecting the same symbol twice ends the game.</div>
       <div>Current Score: {score}</div>
       <div>High Score: {highScore}</div>
       <div className="deck">
